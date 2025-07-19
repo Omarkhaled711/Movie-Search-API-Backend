@@ -61,6 +61,8 @@ flowchart TD
     FastAPI
         --> Client["search_tmdb (movie_client.py)"]
     Client
+        --> Params["Parse & Validate MovieSearchParams"]
+    Params
         --> TMDB["Search TMDB API"]
         --> Utilities["Movie Processing Utilities"]
         --> OMDB["Fetch details from OMDB
@@ -69,8 +71,6 @@ flowchart TD
     OMDB
         --> Cache["Cache in Redis if needed"]
     Cache
-        --> Params["Parse & Validate MovieSearchParams"]
-    Params
         --> Response["Serialize MovieResponse List"]
     Response
         --> User
